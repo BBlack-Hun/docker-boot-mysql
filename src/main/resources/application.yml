@@ -1,12 +1,13 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://db-mysql:3306/mydb?useSSL=false
+    url: jdbc:mysql://db-mysql:3306/mydb?characterEncoding=utf8&serverTimezone=UTC&useSSL=false
+    # url: jdbc:mysql://localhost:3306/mydb?characterEncoding=utf8&serverTimezone=UTC&useSSL=false
     username: user
     password: user
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     properties:
       hibernate:
         format_sql: true
