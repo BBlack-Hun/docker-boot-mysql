@@ -26,7 +26,7 @@ public class TestController {
     }
 
     @PostMapping("/")
-    public String form(@ModelAttribute Content content) {
+    public String form(@ModelAttribute ContentRequest content) {
         testRepository.save(new Content(content.getContent()));
         return "redirect:/";
     }
@@ -37,7 +37,14 @@ public class TestController {
         Iterable<Content> contentsIterable = testRepository.findAll();
         contentsIterable.forEach(contents::add);
 
+        model.addAttribute("contents", contents);
         return "list";
+    }
+
+    @Data
+    @AllArgsConstructor
+    static class ContentRequest{
+        private String content;
     }
 
 }
